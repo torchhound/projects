@@ -1,3 +1,4 @@
+#This code is borrowed from Violent Python by TJ O'Connor
 import mechanize, cookielib, random
 
 class anonBrowser(mechanize.Browser):

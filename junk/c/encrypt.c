@@ -5,7 +5,11 @@ char *e_ptr = &e;
 
 int encrypt (char e) 
 {
-	for (e = 0; e != NULL; *e++)
+	for (e = 0; e != NULL; e++)
+	{
+		(int)x;
+		x++;
+		}
 }
 
 int decrypt (char e)

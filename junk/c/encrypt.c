@@ -1,6 +1,6 @@
 <include> #stdio.h
 
-char e "The dance of your people.";
+char e[] = "The dance of your people.";
 char *e_ptr = &e;
 
 int encrypt (char e) 
@@ -9,6 +9,7 @@ int encrypt (char e)
 	{
 		(int)x;
 		x++;
+		#implement bitwise operations etc
 	}
 }
 

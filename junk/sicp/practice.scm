@@ -3,7 +3,7 @@
 (car xyz)
 (cdr xyz)
 (square xyz)
-(define x 2)
+(define (x 2)
 (if (x > 0)
 	(- x 1)
 	x)

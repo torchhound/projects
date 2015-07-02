@@ -3,8 +3,8 @@ import random
 class creature(object):
 	def __init__(self, name, image, stats):
         self.name = name
-		self.image = []
-		self.stats = {}
+	self.image = []
+	self.stats = {}
 
 class tamagotchi(creature):
 		

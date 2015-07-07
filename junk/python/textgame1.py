@@ -1,7 +1,19 @@
 import random, os #numpy for arrays? pygame for graphics?
 
+class entity(object):
+	def __init__(self, image):
+		self.image = image #array?
+
+class player(entity):
+	def __init__(self, stats):
+		self.stats = stats #array?
+	
+class enemy(entity):
+	def __init__(self, stats):
+		self.stats = stats #array?
+
 def help():
-	print "Available commands: grab, forward, up, down, left, right, backward, examine"
+	print "Available commands: grab, forward, up, down, left, right, backward, examine, map"
 	
 def map():
 	matrix = [[0 for x in range(5)] for x in range(5)] 
@@ -22,6 +34,7 @@ def game():
 		print "You enter the mouth of the cave."
 	else:
 		print "That city looks mighty inviting!"
+	map()
 		
 def main():
 	game = True
@@ -38,3 +51,6 @@ def main():
 			os.exit()
 		else:
 			null
+			
+if __name__ == "__main__":
+    main()

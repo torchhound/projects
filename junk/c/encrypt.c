@@ -9,7 +9,7 @@ int encrypt (char e)
 	{
 		(int)x;
 		x++;
-		#implement bitwise operations etc
+		/*implement bitwise operations etc*/
 	}
 }
 

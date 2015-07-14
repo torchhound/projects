@@ -19,6 +19,8 @@ def game():
 	while game_status = True:
 		pet = tamagotchi(%s, name) #fix classes and inheritance
 		#"O", 'hp':'5', 'level':'1', 'xp':'1', 'hunger':'5', 'intelligence':'5', 'strength':'5', 'happiness':'5', 'boredom':'5'
+		pet.soiled = False
+		pet.egg = True
 		for x in 3:
 			input = raw_input("MENU \n 1.Stats \n 2.Feed \n 3.Play \n 4.Clean Up 5.Evolve")
 			if input == 1:

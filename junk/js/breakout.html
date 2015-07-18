@@ -3,14 +3,13 @@
 	<head>
 		<meta charset="UTF-8">
 		<title>Breakout!</title>
-		<!--<script></script>-->
 		<style>
 			*{padding:0; margin:0;}
 			canvas{background: #747491; display: block; margin: 0 auto;}
 		</style>
 	</head>
 	<body>
-		<canvas id = "game" width = "500" height = "500"></canvas>
+		<canvas id = "game" width = "475" height = "500"></canvas>
 		<script>
 			var canvas = document.getElementById("game");
 			var context = canvas.getContext("2d");
@@ -23,7 +22,7 @@
 			var paddleHeight = 10;
 			var paddleWidth = 75;
 			var paddleX = (canvas.width-paddleWidth)/2;
-			<!--var paddleColor = "#E68A2E"; need a separate canvas to do different colors for ball, paddle, and bricks?-->
+			var paddleColor = "#E68A2E"; 
 			var rightPress = false;
 			var leftPress = false;
 			var brickRowCount = 5;

@@ -9,6 +9,28 @@
 		<script>
 			var canvas = document.getElementById("game");
 			var context = canvas.getContext("2d");
+			var mainArray = new Array();
+			var nextArray = new Array();
+			var start = false;
+			
+			function initializeArray() {
+				if (start = false) {
+					for (x = 0; x <= 1000; x++) {
+						mainArray[x] = new Array();
+						for (x = 0; x <= 1000; x++) {
+							mainArray[x][y] = 0;
+						}
+					}	
+				}
+				else if (start = true) {
+					for (x = 0; x <= 1000; x++) {
+						nextArray[x] = new Array();
+						for (x = 0; x <= 1000; x++) {
+							nextArray[x][y] = 0;
+						}
+					}
+				}
+			}
 		</script>
 	</body>
 </html>

@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset = "utf-8">
+		<title>Clicker Proto</title>
+		<style>
+		</style>
+	</head>
+	<body>
+		<canvas id = "clicker" height = window.innerHeight width = window.innerWidth></canvas>
+		<script>
+			var clicker = document.getElementById("clicker");
+			var context = clicker.getContext("2d")
+			var dps = 1;
+			var clickDamage = 1;
+			var items = new Array();
+			var upgrades = new Array();
+			var level = 1;
+			var dpsTime = 1000;
+			var enemyHealth = 20;
+			var enemyColor = "#000000";
+			
+			function target() {
+				context.beginPath();
+				context.rect(10,10,10,10);
+				context.fillStyle = enemyColor;
+				context.fill();
+				context.closePath();
+				if (enemyHealth <= 0) {
+					enemyHealth = 20;
+					if (enemyColor == "#000000") {
+						enemyColor = "#d3d3d3";
+					}
+					else if (enemyColor == "#d3d3d3") {
+						enemyColor = "#000000";
+					}
+				}
+			}
+			
+			function dps() {
+				enemyHealth - dps;
+				window.setInterval(dps, dpsTime);
+			}
+			
+			function player() {
+				enemyHealth - clickDamage;
+			}
+			
+			function draw() {
+				target();
+				dps();
+				clicker.onclick = player();
+				window.getAnimationFrame(draw);
+			}
+			
+			draw();
+		</script>
+	</body>
+</html>

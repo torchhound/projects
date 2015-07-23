@@ -73,7 +73,9 @@
 			function draw() {
 				initializeArray();
 				lifeRules();
-				start = true;
+				if (start = false) {
+					start = true;
+				}
 				window.requestAnimationFrame(draw);
 			}
 			

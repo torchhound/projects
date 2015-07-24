@@ -4,37 +4,51 @@
 		<meta charset = "utf-8">
 		<title>Clicker Proto</title>
 		<style>
+			#clickerContainer {width: 100%; text-align:center;}
+			canvas {text-align: center;}
 		</style>
 	</head>
 	<body>
-		<canvas id = "clicker" height = window.innerHeight width = window.innerWidth></canvas>
+		<div id = "clickerContainer">
+			<canvas id = "clicker" height = window.innerHeight width = window.innerWidth onclick = "enemyClickTest()"<!--onclick = "player()"-->>Error: Unsupported Browser</canvas>
+		</div>
 		<script>
-			var clicker = document.getElementById("clicker");
-			var context = clicker.getContext("2d")
-			var dps = 1;
-			var clickDamage = 1;
-			var items = new Array();
-			var upgrades = new Array();
-			var level = 1;
-			var dpsTime = 1000;
-			var enemyHealth = 20;
-			var enemyColor = "#000000";
+			var clicker = document.getElementById("clicker"),
+				context = clicker.getContext("2d"),
+				dps = 1,
+				clickDamage = 1,
+				items = new Array(),
+				upgrades = new Array(),
+				level = 1,
+				dpsTime = 1000,
+				enemyHealth = 20,
+				enemyColor = "#000000",
+				enemies = [];
+			
+			<!--clicker.addEventListener('click', function() { }, false);-->
 			
 			function target() {
 				context.beginPath();
-				context.rect(10,10,10,10);
+				context.rect(50,50,50,50);
 				context.fillStyle = enemyColor;
 				context.fill();
 				context.closePath();
-				if (enemyHealth <= 0) {
-					enemyHealth = 20;
-					if (enemyColor == "#000000") { <!--switch case statement instead?-->
-						enemyColor = "#d3d3d3";
-					}
-					else if (enemyColor == "#d3d3d3") {
-						enemyColor = "#000000";
-					}
+				function respawn() {
+						enemyHealth = 20;
+						if (enemyColor == "#000000") { <!--switch case statement instead?-->
+							enemyColor = "#d3d3d3";
+						}
+						else if (enemyColor == "#d3d3d3") {
+							enemyColor = "#000000";
+						}
 				}
+				if (enemyHealth <= 0) {
+					respawn();
+				}
+			}
+			
+			function displayDamage() {
+				return undefined;
 			}
 			
 			function dps() {
@@ -43,13 +57,22 @@
 			}
 			
 			function player() {
-				enemyHealth - clickDamage;
+					enemyHealth - clickDamage;
+			}
+			
+			function enemyClickTest() {
+				if (enemyColor == "#000000") { <!--switch case statement instead?-->
+					enemyColor = "#d3d3d3";
+				}
+				else if (enemyColor == "#d3d3d3") {
+					enemyColor = "#000000";
+				}
 			}
 			
 			function draw() {
 				target();
 				dps();
-				clicker.onclick = player();
+				<!--clicker.onclick = "player()";-->
 				window.requestAnimationFrame(draw);
 			}
 			

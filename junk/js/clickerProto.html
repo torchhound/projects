@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset = "utf-8">
+		<title>Clicker Prototype</title>
+		<style>
+			#clickerContainer {width: 100%; text-align:center;}
+			canvas {text-align: center;}
+		</style>
+	</head>
+	<body>
+		<div id = "clickerContainer">
+			<canvas id = "clicker" height = window.innerHeight width = window.innerWidth onclick = "enemyClickTest()"<!--onclick = "player()"-->>Error: Unsupported Browser</canvas>
+		</div>
+		<script>
+			var clicker = document.getElementById("clicker"),
+				context = clicker.getContext("2d"),
+				dps = 1,
+				clickDamage = 1,
+				items = new Array(),
+				upgrades = new Array(),
+				level = 1,
+				dpsTime = 1000,
+				enemyHealth = 20,
+				enemyColor = "#000000",
+				enemies = [];
+			
+			<!--clicker.addEventListener('click', function() { }, false);-->
+			
+			function target() {
+				context.beginPath();
+				context.rect(50,50,50,50);
+				context.fillStyle = enemyColor;
+				context.fill();
+				context.closePath();
+				function respawn() {
+						enemyHealth = 20;
+						if (enemyColor == "#000000") { <!--switch case statement instead?-->
+							enemyColor = "#d3d3d3";
+						}
+						else if (enemyColor == "#d3d3d3") {
+							enemyColor = "#000000";
+						}
+				}
+				if (enemyHealth <= 0) {
+					respawn();
+				}
+			}
+			
+			function displayDamage() {
+				return undefined;
+			}
+			
+			function dps() {
+				enemyHealth - dps;
+				window.setInterval(dps, dpsTime);
+			}
+			
+			function player() {
+					enemyHealth - clickDamage;
+			}
+			
+			function enemyClickTest() {
+				if (enemyColor == "#000000") { <!--switch case statement instead?-->
+					enemyColor = "#d3d3d3";
+				}
+				else if (enemyColor == "#d3d3d3") {
+					enemyColor = "#000000";
+				}
+			}
+			
+			function draw() {
+				target();
+				dps();
+				<!--clicker.onclick = "player()";-->
+				window.requestAnimationFrame(draw);
+			}
+			
+			draw();
+		</script>
+	</body>
+</html>

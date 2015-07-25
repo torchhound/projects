@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset = "UTF-8">
+		<title>badchat_login</title>
+		<style>
+			#formContainer {width: 100%; text-align:center;}
+		</style>
+		<base href="http://torchhound.github.io/projects/">
+	</head>
+	<body>
+		<div id = "formContainer">
+			<form>
+				Username: <input type = "text" name = "userName">
+			</form>
+			<button id = "loginButton" href = "junk/js/badChat/badChatMain">Login</button>
+		</div>
+		<script>
+			var userName = document.getElementById("userName").value;
+			
+			loginButton.addEventListener("onclick", nullCheck, false);
+			
+			function nullCheck() {
+				if (userName === undefined || userName === null) {
+					document.location.reload();
+				}
+				else if (! userName) {
+					document.location.reload();
+				}
+			}
+		</script>
+	</body>
+</html>

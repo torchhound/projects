@@ -61,12 +61,18 @@
 			}
 			
 			function lifeRules() { <!--implement proper rules-->
+				var dead = 0,
+					alive = 1,
+					dormant = 2;
 				for (x in mainArray) { <!--map?-->
 					if (mainArray.some(1)) {
 						drawSquare(mainArray.some(1));
 					}
 					else if (mainArray.some(2)) {
 						drawSquare(mainArray.some(2));
+				}
+				for (x in mainArray) {
+					if (x = alive && 
 				}
 			}
 			

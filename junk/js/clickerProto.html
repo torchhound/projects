@@ -10,10 +10,10 @@
 	</head>
 	<body>
 		<div id = "clickerContainer">
-			<canvas id = "clicker" height = window.innerHeight width = window.innerWidth>Error: Unsupported Browser</canvas>
+			<canvas id = "clickerCanvas" height = window.innerHeight width = window.innerWidth>Error: Unsupported Browser</canvas>
 		</div>
 		<script>
-			var clicker = document.getElementById("clicker"),
+			var clicker = document.getElementById("clickerCanvas"),
 				context = clicker.getContext("2d"),
 				dps = 1,
 				clickDamage = 1,
@@ -25,7 +25,7 @@
 				enemyColor = "#000000",
 				enemies = [];
 			
-			clicker.addEventListener("onclick", player, false);
+			clickerCanvas.addEventListener("click", function(){alert("click!");}, false);
 			
 			function target() {
 				context.beginPath();

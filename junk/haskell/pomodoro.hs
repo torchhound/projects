@@ -1,36 +1,29 @@
 import Data.Time
 
 timer = do
-			let work = 25
-				break = 5
-				breakOccur = False
-				start = getCurrentTime
-				stopWork = start + 25
-				stopBreak = start + 5
+			work = 25
+			break = 5
+			breakOccur = False
+			start = getCurrentTime
+			stopWork = start + 25
+			stopBreak = start + 5
+			
 			if start == stopWork
 				then 
-					"Time for a break!" 
-					let breakOccur = True
-					do
-						timer
+					putStrLn "Time for a break!" 
+					breakOccur = True
+					timer
 					if breakOccur == True
 							then
 								if start == stopBreak
 									then
-										"Get back to work."
-										let breakOccur = False
-										do
-											timer
-								else 
-									do
+										putStrLn "Get back to work."
+										breakOccur = False
 										timer
-					else 
-						do
-							timer
-			else 
-				do
-					timer \n
+								else timer
+					else timer
+			else timer
 
 main = do
-		timer \n
+		timer 
 	

@@ -19,7 +19,7 @@
 			var userName = document.getElementById("userName").value,
 				storage = localStorage["userName"];
 			
-			loginButton.addEventListener("onclick", nullCheck, false); <!--//perhaps switch to an anonymous function inside event listener-->
+			loginButton.addEventListener("click", nullCheck, false); <!--//perhaps switch to an anonymous function inside event listener-->
 			
 			function nullCheck() {
 				if (!userName || !storage) {

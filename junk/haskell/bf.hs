@@ -1,6 +1,6 @@
 import Data.Char
 
-interpreter = | filePtr < length input =
+interpreter = | take filePtr < length input =
 			| take x in input == + = bfArray !! bfArrayPtr + 1
 			| take x in input == - = bfArray !! bfArrayPtr - 1
 			| take x in input == > = bfArrayPtr + 1 

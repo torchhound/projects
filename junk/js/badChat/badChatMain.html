@@ -14,16 +14,32 @@
 			<canvas id = "userList" height = 300 width = 100 style = "border:3px solid #000000;">Error: Unsupported Browser</canvas>
 			<form>
 				Message: <input type = "text" name = "message">
-				<input type = "submit" value = "Send">
+				<input id = "send" type = "submit" value = "Send">
 			</form>
 		</div>
 		<script>
 			var userName = localStorage["userName"],
-				users = (1:userName},
+				users = {1:userName},
+				currentMessage = "",
 				messages = {1:"Welcome!"userName}, <!--//new vars for reformatted variables?-->
+				messagesPointer = 1,
 				chatBox = document.getElementById("chatWindow"),
+				connection = new WebSocket("ws://http://torchhound.github.io/projects"),
 				context = canvas.getContext("2d"),
 				users = document.getElementById("userList"),
+				
+			send.addEventListener("click", send, false);
+			
+			function errorHandler(error){
+					console.log('Error detected: ' + error);
+			}
+			
+			function send() {
+				connection.send(currentMessage);
+				messages.messagesPointer = currentMessage;
+				currentMessage = "";
+				connection.onerror = errorHandler(error);
+			}
 				
 			function update() {
 				for (x in users) {
@@ -34,6 +50,9 @@
 				}
 				function messageDeletion() { 
 				//null
+				}
+				function receive() {
+				
 				}
 			}
 				

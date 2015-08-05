@@ -13,25 +13,18 @@
 			<form>
 				Username: <input type = "text" name = "userName">
 			</form>
-			<button id = "loginButton" href = "junk/js/badChat/badChatMain" href="javascript:passData();">Enter</button> <!--2 hrefs?-->
+			<button id = "loginButton" href = "junk/js/badChat/badChatMain">Enter</button> <!--2 hrefs?-->
 		</div>
 		<script>
-			var userName = document.getElementById("userName").value;
+			var userName = document.getElementById("userName").value,
+				storage = localStorage["userName"];
 			
 			loginButton.addEventListener("onclick", nullCheck, false); <!--//perhaps switch to an anonymous function inside event listener-->
 			
 			function nullCheck() {
-				if (userName === undefined || userName === null) {
+				if (!userName || !storage) {
 					document.location.reload();
 				}
-				else if (! userName) {
-					document.location.reload();
-				}
-			}
-			
-			function passData() {
-				var p4ck4ge = userName
-				window.location = "badChatMain.html?" + p4ck4ge;
 			}
 		</script>
 	</body>

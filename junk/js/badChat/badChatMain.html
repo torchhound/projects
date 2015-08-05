@@ -18,11 +18,12 @@
 			</form>
 		</div>
 		<script>
-			var users = (1:userName},
+			var userName = localStorage["userName"],
+				users = (1:userName},
 				messages = {1:"Welcome!"userName}, <!--//new vars for reformatted variables?-->
 				chatBox = document.getElementById("chatWindow"),
 				context = canvas.getContext("2d"),
-				users = document.getElementById("userList");
+				users = document.getElementById("userList"),
 				
 			function update() {
 				for (x in users) {
@@ -46,13 +47,6 @@
 				context.beginPath();
 				context.fillText(messages);
 				context.closePath();
-			}
-				
-			function unpackData() {
-				var query = window.location.search;
-				if (query.substring(0, 1) == '?') {
-					query = query.substring(1);
-				}
 			}
 			
 			function draw() {

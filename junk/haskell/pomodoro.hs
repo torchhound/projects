@@ -8,21 +8,21 @@ timer = do
 			stopWork = start + 25
 			stopBreak = start + 5
 			
-			if start == stopWork
-				then 
+			| start == stopWork
+				= 
 					putStrLn "Time for a break!" 
 					breakOccur = True
 					timer
-					if breakOccur == True
-							then
-								if start == stopBreak
-									then
+					| breakOccur == True
+							=
+								| start == stopBreak
+									=
 										putStrLn "Get back to work."
 										breakOccur = False
 										timer
-								else timer
-					else timer
-			else timer
+								| otherwise = timer
+					| otherwise = timer
+			| otherwise = timer
 
 main = do
 		timer 

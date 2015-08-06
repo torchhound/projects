@@ -13,18 +13,18 @@
 			<canvas id = "chatWindow" height = 300 width = 300 style = "border:3px solid #000000;">Error: Unsupported Browser</canvas>
 			<canvas id = "userList" height = 300 width = 100 style = "border:3px solid #000000;">Error: Unsupported Browser</canvas>
 			<form>
-				Message: <input type = "text" name = "message">
+				Message: <input id = "messageBox" type = "text" name = "message">
 				<input id = "send" type = "submit" value = "Send">
 			</form>
 		</div>
 		<script>
 			var userName = localStorage["userName"],
 				users = {1:userName},
-				currentMessage = "",
+				currentMessage = document.getElementById("messageBox").value,
 				messages = {1:"Welcome!"userName}, <!--//new vars for reformatted variables?-->
 				messagesPointer = 1,
 				chatBox = document.getElementById("chatWindow"),
-				connection = new WebSocket("ws://http://torchhound.github.io/projects"),
+				connection = new WebSocket("ws://http://torchhound.github.io/projects/badChat"),
 				context = canvas.getContext("2d"),
 				users = document.getElementById("userList"),
 				
@@ -35,10 +35,13 @@
 			}
 			
 			function send() {
-				connection.send(currentMessage);
-				messages.messagesPointer = currentMessage;
-				currentMessage = "";
-				connection.onerror = errorHandler(error);
+				if (currentMessage != null || currentMessage == "") {
+					connection.send(currentMessage);
+					messages.messagesPointer = currentMessage;
+				}
+				else {
+					connection.onerror = errorHandler(error);
+				}
 			}
 				
 			function update() {

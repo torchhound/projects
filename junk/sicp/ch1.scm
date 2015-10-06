@@ -24,4 +24,16 @@
 (/ (+ 5 4 (- 2(- 3)(+ 6 .8))) (* 3 (- 6 2) (- 2 7)))
 
 ;1.3
-(define (sum_larger a b) ())
+(define (sum_larger a b c) (
+  (define x (expt (cond ((> a b) a) ((> a c) a)) 2))
+  (define y (expt (if (or (> c a) (> c b)) c b) 2))
+  (+ x y)
+))
+
+;1.8
+
+
+;1.10
+
+
+;1.12

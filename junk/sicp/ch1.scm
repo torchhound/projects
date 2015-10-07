@@ -24,19 +24,20 @@
 (/ (+ 5 4 (- 2(- 3)(+ 6 .8))) (* 3 (- 6 2) (- 2 7)))
 
 ;1.3
-(define (larger a b)
-    (if (> a b) a b)
-)
-
 (define (square z)
   (* z z)
 )
 
-(define (sum_square_larger a b c) (
-  (define x (square (larger a b)))
-  (define y (square (larger b c)))
-  (if (= x y) (+ (square (larger a c)) y) (+ x y))
-))
+(define (square_sum d e)
+    (+ (square d) (square e))
+)
+
+(define (sum_square_larger a b c)
+  (if (>= a c)
+    (square_sum a (if (>= b c) b c))
+    (square_sum c (if (>= a b) a b))
+  )
+)
 
 (sum_square_larger 3 4 5)
 

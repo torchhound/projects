@@ -28,10 +28,14 @@
     (if (> a b) a b)
 )
 
+(define (square z)
+  (* z z)
+)
+
 (define (sum_square_larger a b c) (
-  (define x (expt (> (larger a b) (larger a c)) 2)) ; c a
-  (define y (expt (larger b c) 2))
-  (if (= x y) (+ (expt a 2) y))
+  (define x (square (larger a b)))
+  (define y (square (larger b c)))
+  (if (= x y) (+ (square (larger a c)) y) (+ x y))
 ))
 
 (sum_square_larger 3 4 5)

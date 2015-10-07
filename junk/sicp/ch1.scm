@@ -24,11 +24,17 @@
 (/ (+ 5 4 (- 2(- 3)(+ 6 .8))) (* 3 (- 6 2) (- 2 7)))
 
 ;1.3
-(define (sum_larger a b c) (
-  (define x (expt (cond ((> a b) a) ((> a c) a)) 2))
-  (define y (expt (if (or (> c a) (> c b)) c b) 2))
-  (+ x y)
+(define (larger a b)
+    (if (> a b) a b)
+)
+
+(define (sum_square_larger a b c) (
+  (define x (expt (> (larger a b) (larger a c)) 2)) ; c a
+  (define y (expt (larger b c) 2))
+  (if (= x y) (+ (expt a 2) y))
 ))
+
+(sum_square_larger 3 4 5)
 
 ;1.8
 

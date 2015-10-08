@@ -40,9 +40,24 @@
 )
 
 (sum_square_larger 3 4 5)
+(sum_square_larger 3 4 2)
 
 ;1.8
+(x/y^2+2y)/3
 
+(define (averageTwo a b)
+  (/ (+ a b) 2)
+)
+
+(define (findCube x y)
+  (define aprxX (- x .01))
+  (if (<= (/ (+ (* 2 y) (/ x (expt y 2))) 3) aprxX)
+    y
+    (findCube x (averageTwo y (/ x y)))
+)
+
+(findCube 9 1)
+(findCube 9 3)
 
 ;1.10
 

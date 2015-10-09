@@ -51,9 +51,10 @@
 
 (define (findCube x y)
   (define aprxX (- x .01))
-  (if (<= (/ (+ (* 2 y) (/ x (expt y 2))) 3) aprxX)
+  (if (<= aprxX (expt y 3)) ;(/ (+ (* 2 y) (/ x (expt y 2))) 3)
     y
     (findCube x (averageTwo y (/ x y)))
+    )
 )
 
 (findCube 9 1)
@@ -61,5 +62,8 @@
 
 ;1.10
 
+;(A 1 10) =
+;(A 2 4) =
+;(A 3 3)=
 
 ;1.12

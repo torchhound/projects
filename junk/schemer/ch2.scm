@@ -12,3 +12,14 @@
 		)
 	)
 )
+
+(define member?
+	(lambda (x lat)
+		(cond ((null? lat) #f)
+			  (else (or (eq? x (car lat))
+						(member? x (cdr lat))
+					)
+				)
+		)
+	)
+)

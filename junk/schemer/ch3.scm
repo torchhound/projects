@@ -14,3 +14,47 @@
 		)
 	)
 )
+
+(define insertR
+	(lambda (new old lat)
+		(cond ((null? lat) (quote ()))
+			  (else (cond ((eq? (car lat) old) (cons old (cons new (cdr lat))))
+							(else (cons (car lat) (insertR new old(cdr lat))))
+					)
+				)
+		)
+	)
+)
+
+(define insertL
+	(lambda (new old lat)
+		(cond ((null? lat) (quote ()))
+			  (else (cond ((eq? (car lat) old) (cons new (cons old (cdr lat))))
+							(else (cons (car lat) (insertL new old(cdr lat))))
+					)
+				)
+		)
+	)
+)
+
+(define subst
+	(lambda (new old lat)
+		(cond ((null? lat) (quote ()))
+			  (else (cond ((eq? (car lat) old) (cons new (cdr lat)))
+							(else (cons (car lat) (subst new old(cdr lat))))
+					)
+				)
+		)
+	)
+)
+
+(define subst2
+	(lambda (new old1 old2 lat)
+		(cond ((null? lat) (quote ()))
+			  (else (cond ((or (eq? (car lat) old1) (eq? (car lat) old2)) (cons new (cdr lat)))
+							(else (cons (car lat) (subst2 new old1 old2 (cdr lat))))
+					)
+				)
+		)
+	)
+)

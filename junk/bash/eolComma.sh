@@ -8,6 +8,6 @@ do
 	lineCount - 1
 	for line in lineCount
 	do
-		awk -F, -v OFS=, '{$9 = ",,"};1' file 
+		awk -F, -v OFS=, '{$9 = ",,"};1' $file 
 	done
 done

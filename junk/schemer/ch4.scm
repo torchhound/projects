@@ -29,4 +29,7 @@
 (define addTup
 	(lambda (tup)
 		(cond ((null? tup) 0)
-			  (
+			  (else (+ (car tup) (addTup cdr tup)))
+		)
+	)
+)

@@ -97,4 +97,29 @@
 
 (define _length
 	(lambda (lat)
-		(cond ((
+		(cond ((null? lat) 0)
+			   (else (add1 (_length (cdr lat)))) ;adds 1 on each recursive step until the lat is null
+		)
+	)
+)
+
+(define pick
+	(lambda (n lat)
+		(cond ((zero? (sub1 n)) (car lat)) ;if subtracting 1 from n is zero then this is the atom you have picked and it is returned
+				(else (pick (sub1 n)(cdr lat))) 
+		)
+	)
+)
+
+(define rempick
+	(lambda (n lat)
+		(cond ((zero? (sub1 n)) (cdr lat)) 
+				(else (cons (car lat) (rempick (sub1 n)(cdr lat))))
+		)
+	)
+)
+
+(define non-nums
+	(lambda (lat)
+		(cond ((null? lat) (quote())) ;1st Commandment
+				(else (cond ;gonna need number? primitive and cons

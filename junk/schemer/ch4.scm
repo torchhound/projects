@@ -122,4 +122,21 @@
 (define non-nums
 	(lambda (lat)
 		(cond ((null? lat) (quote())) ;1st Commandment
-				(else (cond ;gonna need number? primitive and cons
+				(else (cond ((number? (car lat)) (no-nums (cdr lat))) ;is the car of lat a number if so then recurse on the cdr of lat
+							 (else (cons (car lat) (no-nums (cdr lat)))) ;car lat is not a number and hence must be cons'd at the end of recursion to return lat minus any numbers
+						)
+				)
+		)
+	)
+)
+
+(define all-nums
+	(lambda (lat)
+		(cond ((null? lat) (quote()))
+				(else (cond ((number? (car lat)) (cons (car lat) (all-nums (cdr lat)))) ;moving the primary recursion to return a list of extracted numbers
+							 (else (all-nums (cdr lat))) ;ignoring atoms and continuing to recurse
+						)
+				)
+		)
+	)
+)

@@ -140,3 +140,41 @@
 		)
 	)
 )
+
+(define equan?
+	(lambda (a1 a2)
+		(cond ((and (number? a1)(number? a2)) (= a1 a2))
+			  ((or (number? a1) (number? a2)) #f)
+			  (else (eq? a1 a2))
+		)
+	)
+)
+
+(define occur?
+	(lambda (lat a)
+		(cond ((null? lat) 0)
+			  (else (cond ((eq? a (car lat)) (add1 (occur? a (cdr lat))))
+						   (else (occur? a (cdr lat)))
+					)
+				)
+		)
+	)
+)
+
+(define one? ;can be simplified to 1 line (define one? (lambda (n) (= n 1)))
+	(lambda (n)
+		(cond ((zero? n) #f)
+			  ((= n 1) #t)
+			  (else #f)
+		)
+	)
+)
+
+(define rempick2
+	(lambda (n lat)
+		(cond ((one? n) (cdr lat)) 
+			  (else (cons (car lat) (rempick2 (sub1 n)(cdr lat))))
+		)
+	)
+)
+			

@@ -1,0 +1,77 @@
+@import url(https://fonts.googleapis.com/css?family=Roboto);
+
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Roboto';
+}
+
+div#header {
+    width: 100%;
+    height: 50px;
+    background-color: #336E7B;
+    margin: 0 auto;
+}
+
+.logo {
+    font-size: 1.6em;
+    padding: 10px;
+    color: #3a3a3a;
+    float: left;
+}
+
+.logo span { /*make the logo fancy later*/
+    font-weight: 300;
+}
+
+div#container {
+    width: 100%;
+    /*height: 100%;*/
+    overflow: auto;
+    /*margin: 0 auto;*/
+}
+
+.sidebar {
+    width: 250px;
+    height: 100%;
+    background-color: #95A5A6;
+    float: left;
+    padding: 15px;
+    /*position: relative; /*now sidebar doesn't touch div#header*/
+}
+
+.content {
+    width: auto;
+    height: 100%;
+    background-color: #fff;
+    padding: 15px;
+    margin-left: 250px;
+}
+
+ul#navigation {
+    
+}
+
+ul#navigation li {
+    list-style: none;
+}
+
+ul#navigation a {
+    color: #ccc;
+    display: block;
+    padding: 10px;
+    font-size: 0.8em;
+    transition: 0.2s;
+}
+
+ul#navigation li a:hover{
+    background-color: #fff;
+}
+
+ul#navigation li a.selected{
+    background-color: #fff;
+}

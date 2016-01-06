@@ -27,3 +27,10 @@
 )
 
 (define rember*
+	(lambda (a l)
+		(cond ()
+			  ()
+			  ()
+		)
+	)
+)

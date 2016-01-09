@@ -10,7 +10,7 @@ int leap(float x){
 int main(){
 	float input, output;
 	printf("Enter age in years: ");
-	input = getc(stdin);
+	scanf(%f, &input);
 	output = leap(input)*24*60*60
 	printf("Your age in seconds is %c", output);
 	return 0;

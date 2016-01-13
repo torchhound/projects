@@ -12,7 +12,7 @@ int monsterAtk(void *self, int dmg){
 
 	monster->hitPoints -= dmg;
 
-	if(monster->hitPOints > 0){
+	if(monster->hitPoints > 0){
 		printf("It is still alive.\n");
 	}else{
 		printf("You have slain %s!\n", monster->description);
@@ -142,7 +142,7 @@ int processInput(map *game){
 		case -1:
 			printf("Only a coward retreats.\n");
 			return 0;
-			break
+			break;
 		case 'n':
 			game->_(mov)(game, NORTH);
             break;

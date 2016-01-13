@@ -1,7 +1,9 @@
+CC = gcc
 CFLAGS=-Wall -g
+OBJECTS = game.o object.o
 
-all: ex19
+all: game.o
 
-ex19: object.out
+game.o : object.out
 
 

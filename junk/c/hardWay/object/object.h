@@ -10,14 +10,14 @@ typedef struct {
 	int (*init)(void *self);
 	void (*describe)(void *self);
 	void(*destroy)(void *self);
-	void *(*move)(void *self, directionDirection);
-	int (*attack)(void *self, int dmg);
+	void *(*mov)(void *self, direction direction);
+	int (*atk)(void *self, int dmg);
 }object;
 
 int objInit(void *self);
 void objDestroy(void *self);
 void objDescribe(void *self); 
-void *objMov(void *self, directionDirection);
+void *objMov(void *self, direction direction);
 int objAtk(void *self, int dmg);
 void *objNew(size_t size, object proto, char *description);
 

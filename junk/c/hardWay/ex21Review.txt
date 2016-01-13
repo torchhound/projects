@@ -1,0 +1,108 @@
+Data Types
+
+int - stores a 32bit integer
+float - floating point number
+double - floating point number, double the capacity of float 52vs23 bits of significand, 11vs8 bits of exponent
+char - holds a 1byte character
+void - indicative of a lack of type, a function that wil return nothing or a typeless pointer
+enum - data type that contains different values which can be compared and assigned but are left unspecified and have no memory address, arbitrary
+
+Type Mods
+
+unsigned - can't be less than zero but increases positive number range
+signed - negative and positive numbers with a lower upper bound for positives
+long - doubles storage size
+short - halves storage size
+
+Type Qualifiers
+
+const - variable will not change after initialization
+volatile - rarely used, left alone by compiler
+register - stores variable in register, only use if absolutely necessary for speed
+
+Type Conversion
+
+When converting always convert to a larger type, never down. 
+Syntax is (data type you want)data type you have
+
+Type Sizes
+
+Full list plus macros in stdint.h part of stdlib.h also contains stddef.h 
+
+Available Operators
+
+binary - place things on either side of operator
+unary - operator operates on only one side
+prefix - ++x
+postfix - x++
+ternary - 3 operands, only 1 ternary operation, X ? Y : Z or if x then y else z
+
+Math Operators
+
++
+++x - increment then read
+x++ - read then increment
+-
+--x - increment then read
+x-- - read then increment
+/
+*
+
+Data Operators
+
+-> - struct pointer access
+. - struct value access
+[] - array index
+sizeof(x) - memory size of x
+& - address of
+* - value of
+
+Logic Operators
+
+!= - not equal
+< - less than
+> - greater than
+== - equal to
+<= - less than equal to
+>= - greater than equal to
+
+Bit Operators
+
+& - bitwise and
+<< - shift left
+>> - shift right
+^ - bitwise xor
+| - bitwise or
+~ - flips all bits
+
+Boolean Operators
+
+&& - and
+|| - or
+! - not
+? : - ternary truth test, if x then y else z
+
+Assignment Operators
+
+= - assign
+%= - modulus assign
+&= - bitwise and assign.
+*= - multiply assign.
++= - plus assign.
+-= - minus assign.
+/= - divide assign.
+<<= - shift left, assign.
+>>= - shift right, assign.
+^= - bitwise xor, assign.
+|= - bitwise or, assign.
+
+Control Structures
+
+for loops
+while loops
+do while loops
+if then else(plus else if)
+switch
+break
+continue - stops a loop and jumps to test
+goto - jump to a label, ala asm batch etc

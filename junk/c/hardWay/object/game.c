@@ -15,7 +15,7 @@ int monsterAtk(void *self, int dmg){
 	if(monster->hitPoints > 0){
 		printf("It is still alive.\n");
 	}else{
-		printf("You have slain %s!\n", monster->description);
+		printf("You have slain %s!\n", monster->_(description)); /*changed description to _(description)*/
 		return 1;
 	}
 }

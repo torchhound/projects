@@ -10,7 +10,7 @@ int getAge(){
 	return THE_AGE;
 }
 
-int setAge(int age){
+void setAge(int age){
 	THE_AGE = age;
 }
 

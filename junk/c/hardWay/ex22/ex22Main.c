@@ -36,7 +36,7 @@ int main(int argc, char *argv[]){
 
 	log_info("1st ratio %f", updateRatio(2.0));
 	log_info("2nd ratio %f", updateRatio(10.0));
-	log_info("3rd ratio %f", updateRation(300.0);
+	log_info("3rd ratio %f", updateRatio(300.0));
 
 	int count = 4;
 	scopeDemo(count);

@@ -3,7 +3,7 @@
 
 typdef enum {
 	NORTH, SOUTH, EAST, WEST
-}direction;
+} direction;
 
 typedef struct {
 	char *description;
@@ -12,7 +12,7 @@ typedef struct {
 	void(*destroy)(void *self);
 	void *(*mov)(void *self, direction direction);
 	int (*atk)(void *self, int dmg);
-}object;
+} object;
 
 int objInit(void *self);
 void objDestroy(void *self);

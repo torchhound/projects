@@ -2,9 +2,9 @@ Data Types
 
 int - stores a 32bit integer
 float - floating point number
-double - floating point number, double the capacity of float 52vs23 bits of significand, 11vs8 bits of exponent
-char - holds a 1byte character
-void - indicative of a lack of type, a function that wil return nothing or a typeless pointer
+double - floating point number, double the capacity of float: 52vs23 bits of significand, 11vs8 bits of exponent
+char - holds a 1byte character, char *someVariable[] = an array of chars or a string
+void - indicative of a lack of type, a function that will return nothing or a typeless pointer
 enum - data type that contains different values which can be compared and assigned but are left unspecified and have no memory address, arbitrary
 
 Type Mods
@@ -105,4 +105,4 @@ if then else(plus else if)
 switch
 break
 continue - stops a loop and jumps to test
-goto - jump to a label, ala asm batch etc
+goto - jump to a label, ala asm, batch, etc

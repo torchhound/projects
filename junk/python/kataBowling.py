@@ -12,7 +12,7 @@ def bowlingScore(score):
 	print(totalScore)
 	
 def main():
-	userScore = input("Please input a bowling score without spaces: ")
+	userScore = input("Please input a bowling score without spaces: ") #needs to be run in python 3.x
 	bowlingScore(userScore)
 	
 main()

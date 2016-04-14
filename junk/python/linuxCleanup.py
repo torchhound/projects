@@ -1,6 +1,8 @@
 from subprocess import call
 from platform import dist, linux_distribution 
 
+#update packages based on OS, do file backups, cleanup /tmp
+
 def deadLinkSearch():
 	call("cd ~")
 	call("find . xtype l | xargs rm") #find . -type l -! -exec test -e {} \; -print

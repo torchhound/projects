@@ -2,7 +2,7 @@ import random, os, nltk
 
 def enSteg(key, file, message):
 	image = open(file, 'r+')
-	capsule = key + ' ' + message
+	capsule = key + ' ' + message #add termination character
 	location = random.randrange(os.path.getsize(file))
 	token = nltk.word_tokenize(image) #reduce complexity by using seek() instead of nltk?
 	token.insert(location, capsule) 
@@ -11,8 +11,8 @@ def enSteg(key, file, message):
 	
 def deSteg(key, file):
 	image = open(file, 'r')
-	for x in file:
-		#search for key and then print subsequent message
+	if key in image.read(): #not sure if this will work for large files
+		print() #print until termination character
 	image.close()
 
 def main():

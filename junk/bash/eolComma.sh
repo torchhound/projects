@@ -11,3 +11,5 @@ do
 		awk -F, -v OFS=, '{$9 = ",,"};1' $file 
 	done
 done
+
+exit 0

@@ -6,3 +6,5 @@ for file in *.png
 do
 	convert -strip $file
 done
+
+exit 0

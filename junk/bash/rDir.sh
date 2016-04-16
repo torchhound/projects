@@ -3,4 +3,4 @@
 touch rDir
 find . | tee -a rDir
 
-exit
+exit 0

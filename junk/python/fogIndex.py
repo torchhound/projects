@@ -23,3 +23,8 @@
 
     A strict interpretation of the Gunning fog index does not count compound words and proper nouns as "difficult" words, but this would enormously complicate the script.
 	'''
+
+import re
+	
+def fogIndex(text): #take text from separate file or filename?
+	#regex for capitalization and periods

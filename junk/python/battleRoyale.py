@@ -3,8 +3,8 @@
 import random
 from numpy import *
 
-class hero():
-	__name = ''
+class hero(): #include position data with each hero object?
+	__id = '' #change from private vars to regular vars?
 	__dex = ''
 	__str = ''
 	__con = ''
@@ -12,14 +12,20 @@ class hero():
 	__wis = ''
 	__char = ''
 	
-	def __init__(self, name, dex, str, con, int, wis, char):
-		self.__name = name
+	def __init__(self, id, dex, str, con, int, wis, char):
+		self.__id = id
 		self.__dex = dex
 		self.__str = str
 		self.__con = con
 		self.__int = int
 		self.__wis = wis
 		self.__char = char
+		
+	def deBuff(self, skill, new):
+		self.skill = new
+		
+	def getSkill(self, skill):
+		return self.skill
 	
 def createMap(xSize, ySize): #terrain mod?
 	map = np.zeros(xSize, ySize)

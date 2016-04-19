@@ -1,25 +1,25 @@
 #rpg battle royale simulator
 
-import random
+import random #import numpy?
 from numpy import *
 
-class hero(): #include position data with each hero object?
-	__id = '' #change from private vars to regular vars?
-	__dex = ''
-	__str = ''
-	__con = ''
-	__int = ''
-	__wis = ''
-	__char = ''
+class Hero(): #include position data with each hero object?
+	id = '' 
+	dex = '' #dexterity
+	str = '' #strength
+	con = '' #constitution
+	int = '' #intelligence
+	wis = '' #wisdom
+	char = '' #charisma
 	
 	def __init__(self, id, dex, str, con, int, wis, char):
-		self.__id = id
-		self.__dex = dex
-		self.__str = str
-		self.__con = con
-		self.__int = int
-		self.__wis = wis
-		self.__char = char
+		self.id = id
+		self.dex = dex
+		self.str = str
+		self.con = con
+		self.int = int
+		self.wis = wis
+		self.char = char
 		
 	def deBuff(self, skill, new):
 		self.skill = new
@@ -32,9 +32,12 @@ def createMap(xSize, ySize): #terrain mod?
 
 def createHeroes(number): #variety mod? or specific classes mod?
 	for x in number:
-		#return heroes in a data structure or just as objects? 
+		nameInc = "hero" + x
+		hero = Hero(nameInc, random.randrange(0,20), random.randrange(0,20), random.randrange(0,20), random.randrange(0,20), random.randrange(0,20), random.randrange(0,20))
 
 def battle(turns, map, heroes): #unnecessary parameters? or maybe more params?
+	#either move or fight, battles decided based on stats, chance to fight based on wisdom and charisma
+	#print or return hero and their stats
 
 def main():
 	print("Welcome to Battle Royale Sim!")

@@ -25,6 +25,33 @@
 	'''
 
 import re
+
+def fileOpen(filename):
+	obj = open(filename, "r"
+	ret = obj.readlines()
+	return ret
 	
-def fogIndex(text): #take text from separate file or filename?
-	#regex for capitalization and periods
+def findSentences(text):
+
+
+def longWords(text):
+
+	
+def fogIndex(text): 
+	size = len(text)
+	if size >= 100:
+		sentNum = findSentences(text)
+		avrWords = size / sentNum
+		longWords = longWords(text)
+		diffWords = longWords / size
+		indexTotal = (0.4 * (avrWords + diffWords))
+		return int(indexTotal)
+	else:
+		return False
+		
+def main():
+	userInput = input("Enter a text file for Fog Index calculation: ")
+	fogIndex(fileOpen(userInput))
+	
+if __name__ == '__main__':
+	main()

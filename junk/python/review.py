@@ -21,3 +21,14 @@ Polymorphism
 '''
 
 class rock
+	hardness = ""
+	type = ""
+	name = ""
+
+	def __init__(self, hardness, type, name):
+		self.hardness = hardness
+		self.type = type
+		self.name = name
+
+	def getVar(self, var):
+		return self.var

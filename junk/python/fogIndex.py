@@ -27,7 +27,7 @@
 import re
 
 def fileOpen(filename):
-	obj = open(filename, "r"
+	obj = open(filename, "r")
 	ret = obj.readlines()
 	return ret
 	

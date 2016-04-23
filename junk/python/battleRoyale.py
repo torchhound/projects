@@ -30,10 +30,17 @@ class Hero(): #include position data with each hero object?
 def createMap(xSize, ySize): #terrain mod?
 	map = np.zeros(xSize, ySize)
 
-def createHeroes(number): #variety mod? or specific classes mod?
+def mapEdit(map, xCor, yCor):
+	
+	
+def createHeroes(number, xSize, ySize): #variety mod? or specific classes mod?
+	heroLocationX = {}
+	heroLocationX = {}
 	for x in number:
 		nameInc = "hero" + x
 		hero = Hero(nameInc, random.randrange(0,20), random.randrange(0,20), random.randrange(0,20), random.randrange(0,20), random.randrange(0,20), random.randrange(0,20))
+		heroLocationX[nameInc] = random.randrange(xSize)
+		heroLocationY[nameInc] = random.randrange(ySize)
 
 def battle(turns, map, heroes): #unnecessary parameters? or maybe more params?
 	#either move or fight, battles decided based on stats, chance to fight based on wisdom and charisma

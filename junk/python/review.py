@@ -32,3 +32,6 @@ class rock
 
 	def getVar(self, var):
 		return self.var
+		
+newDict = {}
+newDict[1] = 1

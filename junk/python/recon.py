@@ -1,18 +1,36 @@
-import requests
+import requests, json
 from subprocess import call
 from github import Github
 
-def googleDork():
-	#null
-
+def googleDork(domain):
+	site = "site:%s" %domain
+	dorks = []
+	for x in dorks:
+		query = site + " " + x
+		rq = requests.get('http://ajax.googleapis.com/ajax/services/search/web?v=1.0&q=' + query)
+		jsonContent = rq.content
+		jsonObject = json.loads(jsonContent)
+		for index,result in enumerate(jsonObject['responseData']['results']):
+			print (str(index+1) + ") " + result['titleNoFormatting'])
+			print (result['url'])
+			
 def subDomainSearch(url):
 	call("dig %s soa" %url) #dig SOA url
 	#call("dig @ns.SOA.com %s axfr" %url)
 	call("host -t %s" %url)
 
-def githubBreach(user, password):
-	gh = Github(user, password)
-	
+def githubBreach(): #user, password
+	#gh = Github(user, password)
+	while True:
+		userGuess = input("Input an organization or user or a guess: ")
+		try:
+			print(github.MainClass.Github.get_organization(userGuess))
+			try:
+				print( github.Organization.userGuess.get_repos()
+			except:
+				continue
+		except:
+			continue
 
 def validURL(url):
 	req = requests.bet(url)

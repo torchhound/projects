@@ -50,22 +50,46 @@ def dnsInfo(url):
 def scanIPRange(start, end):
 	call("nmap {start}-{end}".format(start, end)) #format function vs percent
 
+def bannerGrab(domain, adv): #add user port input for all cmds not just nmap advanced?
+	call("nmap -sV %s" %domain)
+	call("telnet %s 80" %domain)
+	call("nc -v %s 80" %domain) 
+	if adv == "y":
+		userPort = input("Choose port: ")
+		userAgression = input("Agressive: y/n ")
+		if userAgression == "y":
+			call("nmap -A -sV --version-intensity 5 -p %d -v --script banner %s" %userPort, domain)
+		else if userAgression == "n":
+			call("nmap -sV -p %d -v --script banner %s" %userPort, domain)
+		else:
+			print("Invalid")
+	
+def safeScan(domain):
+	call("nmap -sV -sC %s" %domain)
+	
 def main():
-	userArgs = input("Choose url, dns, github, or ip: ")
-	if userArgs == "url": 
+	userArg = input("Choose url, dns, github, banner, safescan, or ip: ")
+	if userArg == "url": 
 		userURL = input("Input URL to check: ")
 		validURL(userURL)
 		subDomain(userURL)
-	else if userArgs == "dns":
+	else if userArg == "dns":
 		userDNS = input("Input URL or IP: ")
 		dnsInfo(userDNS)
-	else if userArgs == "ip":
+	else if userArg == "ip":
 		userIPS = input("Input the complete starting IP address: ")
 		userIPE = input("Input the final quad of the IP address: ")
 		scanIPRange(userIPS, userIPE)
-	else if userArgs == "github":
-		userGithubU = input("Input github username: ")
-		userGithubP = input("Input github password: ")
-		githubBreach(userGithubU, userGithubP)
+	else if userArg == "github":
+		#userGithubU = input("Input github username: ")
+		#userGithubP = input("Input github password: ")
+		githubBreach() #userGithubU, userGithubP
+	else if userArg == "banner":
+		userDomain = input("Input domain to banner grab: ")
+		userAdv = input("Advanced grab: y/n ")
+		bannerGrab(userDomain, userAdv)
+	else if userArg == "safescan":
+		userDomainSS = input("Input domain to banner grab: ")
+		safeScan(userDomainSS)
 	else:
 		return False

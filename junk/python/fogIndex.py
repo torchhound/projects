@@ -32,10 +32,10 @@ def fileOpen(filename):
 	return ret
 	
 def findSentences(text):
-
+	re.search(pattern, text) #re.match(pattern, text) will only find the 1st occurence?
 
 def longWords(text):
-
+	re.search(pattern, text) 
 	
 def fogIndex(text): 
 	size = len(text)

@@ -10,7 +10,7 @@ def enSteg(key, file, message):
 	image.close()
 	
 def deSteg(key, file):
-	image = open(file, 'r')
+	image = open(file, 'r') #re.search(pattern, string, flags=0)
 	if key in image.read(): #not sure if this will work for large files
 		print() #print until termination character
 	image.close()
@@ -29,4 +29,5 @@ def main():
 	else:
 		print("Invalid response")
 	
-main()
+if __name__ == '__main__':
+	main()

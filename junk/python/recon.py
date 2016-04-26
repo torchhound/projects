@@ -25,11 +25,8 @@ def githubBreach(): #user, password
 		userGuess = input("Input an organization or user or a guess: ")
 		try:
 			print(github.MainClass.Github.get_organization(userGuess))
-			try:
-				print( github.Organization.userGuess.get_repos()
-			except:
-				continue
-		except:
+			print(github.Organization.userGuess.get_repos())
+		except BaseException: #need a better exceptionr
 			continue
 
 def validURL(url):
@@ -37,7 +34,7 @@ def validURL(url):
 	if requests.status_code == 200:
 		print("valid URL")
 	else:
-		print requests.status_code
+		print(requests.status_code)
 
 def dnsInfo(url):
 	try:
@@ -59,7 +56,7 @@ def bannerGrab(domain, adv): #add user port input for all cmds not just nmap adv
 		userAgression = input("Agressive: y/n ")
 		if userAgression == "y":
 			call("nmap -A -sV --version-intensity 5 -p %d -v --script banner %s" %userPort, domain)
-		else if userAgression == "n":
+		elif userAgression == "n":
 			call("nmap -sV -p %d -v --script banner %s" %userPort, domain)
 		else:
 			print("Invalid")
@@ -73,23 +70,26 @@ def main():
 		userURL = input("Input URL to check: ")
 		validURL(userURL)
 		subDomain(userURL)
-	else if userArg == "dns":
+	elif userArg == "dns":
 		userDNS = input("Input URL or IP: ")
 		dnsInfo(userDNS)
-	else if userArg == "ip":
+	elif userArg == "ip":
 		userIPS = input("Input the complete starting IP address: ")
 		userIPE = input("Input the final quad of the IP address: ")
 		scanIPRange(userIPS, userIPE)
-	else if userArg == "github":
+	elif userArg == "github":
 		#userGithubU = input("Input github username: ")
 		#userGithubP = input("Input github password: ")
 		githubBreach() #userGithubU, userGithubP
-	else if userArg == "banner":
+	elif userArg == "banner":
 		userDomain = input("Input domain to banner grab: ")
 		userAdv = input("Advanced grab: y/n ")
 		bannerGrab(userDomain, userAdv)
-	else if userArg == "safescan":
+	elif userArg == "safescan":
 		userDomainSS = input("Input domain to banner grab: ")
 		safeScan(userDomainSS)
 	else:
 		return False
+
+if __name__ == '__main__':
+	main()

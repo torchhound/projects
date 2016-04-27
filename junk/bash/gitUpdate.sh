@@ -9,3 +9,4 @@ git merge upstream master
 git add .
 git commit -m "Updated $repo to upstream"
 git push -u origin master
+exit 0

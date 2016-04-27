@@ -33,8 +33,10 @@ def validURL(url):
 	req = requests.bet(url)
 	if requests.status_code == 200:
 		print("valid URL")
+		return True
 	else:
 		print(requests.status_code)
+		return False
 
 def dnsInfo(url):
 	try:
@@ -65,7 +67,7 @@ def safeScan(domain):
 	call("nmap -sV -sC %s" %domain)
 	
 def main():
-	userArg = input("Choose url, dns, github, banner, safescan, or ip: ")
+	userArg = input("Choose url, dns, github, banner, safescan, ip, or all: ")
 	if userArg == "url": 
 		userURL = input("Input URL to check: ")
 		validURL(userURL)
@@ -83,11 +85,24 @@ def main():
 		githubBreach() #userGithubU, userGithubP
 	elif userArg == "banner":
 		userDomain = input("Input domain to banner grab: ")
-		userAdv = input("Advanced grab: y/n ")
+		userAdvA = input("Advanced grab: y/n ")
 		bannerGrab(userDomain, userAdv)
 	elif userArg == "safescan":
-		userDomainSS = input("Input domain to banner grab: ")
+		userDomainSS = input("Input domain to safely scan: ")
 		safeScan(userDomainSS)
+	elif userArg == "all":
+		userDomainA = input("Input domain: ")
+		if validURL(userDomainA) == True: #do this check for other args or superfluous
+			userAdvA = input("Advanced grab: y/n ")
+			bannerGrab(userDomainA, userAdvA)
+			userIPSA = input("Input the complete starting IP address: ")
+			userIPEA = input("Input the final quad of the IP address: ")
+			scanIPRange(userIPSA, userIPEA)
+			githubBreach()
+			dnsInfo(userDomainA)
+			subDomain(userDomainA)
+		else:
+			print("Invalid Input")
 	else:
 		return False
 

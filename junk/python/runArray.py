@@ -2,11 +2,10 @@
 
 from random import*
 def a(x,y):
- ptr=0
+ p=0
  for z in x:
-  if random()>0.5:
-   x[ptr]=z+y
-  ptr+=1
+  if random()>.5:x[p]=z+y
+  p+=1
  print(x)
         
 def main():

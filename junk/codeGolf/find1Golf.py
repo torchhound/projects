@@ -1,0 +1,1 @@
+lambda x:z=10,y=11;while True:if x%z==0:if num/2<=y/2:return x;break;else:return x/y+x%y;break;z+=10

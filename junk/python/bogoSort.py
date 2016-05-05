@@ -5,7 +5,7 @@ def scramble(data):
 
 def compare(data):
 	ptr = 0 #something more elegant than a pointer?
-	for x in len(data):
+	for x in data:
 		if x <= data[ptr + 1]:
 			continue
 		else:

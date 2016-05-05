@@ -3,9 +3,10 @@ import random
 noRe = []
 
 def scramble(data):
+        global noRe
 	new = random.sample(data, len(data))
-	global noRe.append(new)
-	for z in len(global noRe):
+	noRe.append(new)
+	for z in noRe:
 		if new == z:
 			scramble(data)
 		else:
@@ -14,7 +15,7 @@ def scramble(data):
 
 def compare(data):
 	ptr = 0 #something more elegant than a pointer?
-	for x in len(data):
+	for x in data:
 		if x <= data[ptr + 1]: 
 			continue
 		else:

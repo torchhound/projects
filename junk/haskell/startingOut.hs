@@ -1,0 +1,39 @@
+doubleThis x = x + x
+doubleThat x = x * 2
+quadThis x = doubleThis (doubleThat x)
+tripleUs x y = x * 3 + y * 3
+quadSmall x = if x > 100 then x else quadThis x
+sling = "fade"
+another = "this"
+single = 'A'
+someNums = [1,2,3,4,5]
+otherNums = [6,7,8,9]
+conCat x y = x ++ y
+consCat x y = x:y
+index x y = x !! y
+hd x = head x --1st element
+tl x = tail x --all except 1st element
+nt x = init x --all except last element
+lt x = last x --last element
+llength x = length x
+empty x = null x
+--lstCheck x = if null x == True then length x else False
+rvrs x = reverse x
+tk x y = take x y --returns x elements from y list starting at index 0
+drp x y = drop x y --returns y list with x elements missing starting from 0 index
+max x = maximum x --largest element
+min x = minimum x --smallest element
+sm x = sum x --adds up the elements of a list
+prd x = product x --multiplies the elements of list x
+lm x y = x `elem` y --returns true or false based on whether x is in y list
+lazyOne = [1..100] --lazy evaluation
+lazyEven = [2,4..20]
+lazyOdd = [1,3..20]
+lazyLower = ['a'..'z']
+lazyUpper = ['A'..'Z']
+cyc x = cycle x --takes list x and cycles it into an infinite list
+rpt x = repeat x --creates an infinite list of just element x
+rep x y = replicate x y --returns a list of x length composed entirely of y elements
+setOne = [x * 2 | x <- [1..10]]
+filterOne = [x * 2 | x <- [1..10], x * 2 >= 12]
+--fizzBuzz = [if x `mod` 3 = 0 && x `mod` 5 == 0 then "fizzbuzz" else if x `mod` 3 = 0 then "fizz" else if x `mod` 5 == 0 then "buzz" else x | x <- [1..100]]

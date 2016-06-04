@@ -51,4 +51,7 @@ foot x = fst x --fst accepts a pair and returns the first element
 send x = snd x --snd accepts a pair and returns the second element
 bigTupleOne = (1,2,3,4,5)
 bigTupleTwo = (6,7,8,9,10)
-zp x y = zip x y --zip takes 2 lists and turns them into one list with matching elemnts paired up
+zp x y = zip x y --zip takes 2 lists and turns them into one list with each element of the same index paired up
+triangles = [ (a,b,c) | c <- [1..10], b <- [1..10], a <- [1..10] ]
+rightTriangles = [ (a,b,c) | c <- [1..10], b <- [1..c], a <- [1..b], a^2 + b^2 == c^2]
+rightTriangles' = [ (a,b,c) | c <- [1..10], b <- [1..c], a <- [1..b], a^2 + b^2 == c^2, a + b + c == 24]

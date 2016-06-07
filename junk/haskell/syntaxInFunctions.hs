@@ -52,4 +52,39 @@ capital :: String -> String
 capital "" = "Empty string"
 capital all@(x:xs) = "The first letter of " ++ all ++ " is " ++ [x]
 
+--Guards
+bmiBerate :: (RealFloat a) => a -> String
+bmiBerate bmi
+	| bmi <= 18.5 = "Underweight"
+	| bmi <= 25.0 = "Normal"
+	| bmi <= 30.0 = "Fat"
+	| otherwise = "Ham planet"
+
+bmiBerateOne :: (RealFloat a) => a -> a -> String
+bmiBerateOne weight height
+	| weight / height ^ 2 <= 18.5 = "Underweight"
+	| weight / height ^ 2 <= 25.0 = "Normal"
+	| weight / height ^ 2  <= 30.0 = "Fat"
+	| otherwise = "Ham planet"
+
+max' :: (Ord a) => a -> a -> a
+max' a b
+	| a > b = a
+	| otherwise = b
+
+compare' :: (Ord a) => a -> a -> Ordering
+a `compare'` b
+ | a > b = GT
+ | a == b = EQ
+ | otherwise = LT
+
+--Where
+
+bmiBerateTwo :: (RealFloat a) => a -> a -> String
+bmiBerateTwo weight height
+	| bmi <= 18.5 = "Underweight"
+	| bmi <= 25.0 = "Normal"
+	| bmi <= 30.0 = "Fat"
+	| otherwise = "Ham planet"
+	where bmi = weight / height ^ 2	
 

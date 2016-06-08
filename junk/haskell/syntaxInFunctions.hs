@@ -82,9 +82,56 @@ a `compare'` b
 
 bmiBerateTwo :: (RealFloat a) => a -> a -> String
 bmiBerateTwo weight height
-	| bmi <= 18.5 = "Underweight"
-	| bmi <= 25.0 = "Normal"
-	| bmi <= 30.0 = "Fat"
+	| bmi <= skinny = "Underweight"
+	| bmi <= normal = "Normal"
+	| bmi <= fat = "Fat"
 	| otherwise = "Ham planet"
 	where bmi = weight / height ^ 2	
+	      skinny = 18.5
+	      normal = 25.0
+              fat = 30.0 --(skinny, normal, fat) = (18.5, 25.0, 30.0)
 
+initials :: String -> String-> String
+initials first last = [f] ++ ". " ++ [l] ++ "."
+	where (f:_) = first
+	      (l:_) = last
+
+calcBmi :: (RealFloat a) => [(a, a)] -> [a]
+calcBmi xs = [bmi w h | (w, h) <- xs]
+	where bmi weight height = weight / height ^ 2
+
+--let
+
+cylinder :: (RealFloat a) => a -> a -> a
+cylinder r h =
+	let sideArea = 2 * pi * r * h
+	    topArea = pi * r ^ 2
+	in sideArea + 2 * topArea
+
+meaning = 4 * (let a = 9 in a + 1) + 2
+
+localScopeFunc = [let square x = x * x in (square 5, square 3, square 2)]
+
+inlineBind = (let a = 100; b = 200; c = 300 in a * b * c, let foo = "Hey "; bar = "there!" in foo ++ bar) --inline let uses semicolons
+
+tupleBind = (let (a, b, c) = (1, 2, 3) in a + b + c) * 100
+
+calcBmi' :: (RealFloat a) => [(a, a)] -> [a]
+calcBmi' xs = [bmi | (w, h) <- xs, let bmi = w / h ^ 2, bmi >= 25.0]
+
+--case expressions
+
+headOne :: [a] -> a
+headOne xs = case xs of [] -> error "Empty list!"
+		        (x:_) -> x
+
+describeList :: [a] -> String
+describeList xs = "The list is " ++ case xs of [] -> "empty."
+					       [x] -> "a singleton list."
+					       xs -> "greater than 1 element."
+
+describeList' :: [a] -> String
+describeList' xs = "The list is " ++ what xs
+	where what [] = "empty."
+	      what [x] = "a singleton list."
+	      what xs = "greater than 1 element."

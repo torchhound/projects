@@ -1,6 +1,6 @@
 #rpg battle royale simulator
 
-import random #import numpy?
+import random 
 from numpy import *
 
 class Hero(): #include position data with each hero object?

@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta http-equiv = "Content-Type" content = "text/html" charset = "UTF-8">
+		<title>otherSite</title>
+		<link href='https://fonts.googleapis.com/css?family=Lato' rel='stylesheet' type='text/css'>
+		<link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='styleIndex.css') }}">
+		<link rel="shortcut icon" href="{{ url_for('static', filename='favicon.ico') }}">
+	</head>
+	<body>
+		<header>
+				<ul>
+				<li>
+				<a id="navLogo" href="{{ url_for('index') }}"><img src="{{ url_for('static', filename='') }}" alt="logo" width=90 /></a>
+				</li>
+				<li>
+				<a id="register" class = "links" href="{{ url_for('register') }}">Register</a>
+				</li>
+				</ul>
+		</header>
+		<br>
+		<h1 id="title">otherSite</h1>
+		
+		<footer>
+			<div> 
+				<b>Copyright 2016 All Rights Reserved.</b>
+			</div>
+		</footer>
+	</body>
+</html>

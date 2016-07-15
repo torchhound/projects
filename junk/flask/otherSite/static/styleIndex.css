@@ -1,0 +1,54 @@
+ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+    background-color: #212121;
+}
+
+#register {
+	float: right;
+	padding-top: 1cm;
+}
+
+#navLogo {
+    float: left;
+}
+
+li a {
+    display: block;
+    color: #c6c6c6;
+    text-align: center;
+    padding: 14px 16px;
+    text-decoration: none;
+}
+
+#title {
+	text-align: center;
+}
+
+body {
+  font-family: 'Lato', sans-serif;
+  font-size: 1.6rem;
+  background-color: #555555;
+}
+
+article {
+  line-height: 1.5;
+  margin: 0 auto;
+  max-width: 64ch;
+}
+
+article h2 {
+	margin-top: 5%;
+	margin-left: auto;
+	margin-right: auto;
+}
+
+footer {
+	background-color: #212121;
+	position: relative;
+	text-align: center;
+	padding-top: 0.5cm;
+	padding-bottom: 0.75cm;
+}

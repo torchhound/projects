@@ -1,7 +1,10 @@
-var express = require("express");
-var path = require("path");
-var app = express();
+var express = require("express"),
+	path = require("path"),
+	morgan = require("morgan"),
+	port = process.env.PORT || 3000,
+	app = express();
 
+app.use(morgan("dev"));
 app.use(express.static("static"));
 app.use(logErr);
 
@@ -10,10 +13,6 @@ function logErr(err, rq, rs, next){
 	next(err);
 };
 
-app.get('/', function(rq, rs) {
-	rs.sendFile(path.join(__dirname + "/index.html"));
-});
-
-app.listen(3000, function() {
+app.listen(port, function() {
 	console.log("Listening on port 3000");
 });

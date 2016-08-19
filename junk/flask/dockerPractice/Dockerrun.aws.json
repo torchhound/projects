@@ -1,7 +1,7 @@
 {
   "AWSEBDockerrunVersion": "1",
   "Image": {
-    "Name": "torchhound/dockerPractice",
+    "Name": "torchhound/diceapp",
     "Update": "true"
   },
   "Ports": [

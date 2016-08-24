@@ -36,7 +36,7 @@ def rssList(file):
 
 def main():
 	args = argParser()
-	if args.url == True && args.save == True:
+	if args.url == True and args.save == True:
 		rssURL(args.url)
 	elif args.url == True:
 		rssURL(args.url)

@@ -1,11 +1,4 @@
-http://www.ycombinator.com
-news
-newest
-newcomments
-show
-ask
-jobs
-submit
+
 login?goto=item%3Fid%3D12778836
 vote?id=12778836&how=up&goto=item%3Fid%3D12778836
 item?id=12778836
@@ -913,13 +906,4 @@ user?id=a3n
 item?id=12781066
 javascript:void(0)
 reply?id=12781066&goto=item%3Fid%3D12778836%2312781066
-newsguidelines.html
-newsfaq.html
-mailto:hn@ycombinator.com
-https://github.com/HackerNews/API
-security.html
-lists
-bookmarklet.html
-dmca.html
-http://www.ycombinator.com/apply/
-mailto:hn@ycombinator.com
+

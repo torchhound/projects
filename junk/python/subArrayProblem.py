@@ -14,5 +14,4 @@ def searchSub(array):
     if len(array) == 0 or len(array) == 1:
         return array, start, end
     else:
-
-
+        split = len(array) // 2

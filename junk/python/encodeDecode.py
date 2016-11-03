@@ -10,7 +10,7 @@ def encode(integer):
 def decode(twoBytes):
     '''Decodes a two byte hexadecimal string into an integer between -8192 and 8191'''
     partial = int(twoBytes, 16)
-    final = partial -8192
+    final = partial - 8192
     return final
 
 def main():

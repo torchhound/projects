@@ -1,7 +1,7 @@
 def stringPermutations(string):
     count = 1
     index = count
-    while index > 0:
+    while index <= len(string):
         for x in string:
             addendum = ""
             addendum += x

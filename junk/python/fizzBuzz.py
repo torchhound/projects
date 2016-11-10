@@ -1,5 +1,5 @@
 def fizzBuzz():
-	for x in range(0, 101):
+	for x in range(1, 101):
 		if x % 5 == 0 and x % 3 == 0:
 			print("Fizzbuzz")
 		elif x % 3 == 0:

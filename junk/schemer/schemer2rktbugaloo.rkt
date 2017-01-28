@@ -1,5 +1,17 @@
 #lang racket
 
+(define add1
+  (lambda (n)
+    (+ n 1)
+   )
+)
+
+(define sub1
+  (lambda (n)
+    (- n 1)
+   )
+)
+
 (define atom?
   (lambda (x)
     (and (not (pair? x)) (not (null? x)))))
@@ -166,3 +178,129 @@
          (else (cons (car lat) (multiSubst new old (cdr lat)))))))))
 
 (multiSubst 'e 'o '(c r o o k))
+(quote (end ch3))
+
+(define plus
+  (lambda (x y)
+    (cond
+      ((zero? y) x)
+      (else
+       (add1 (plus x (sub1 y)))))))
+
+(plus 14 12)
+
+(define minus
+  (lambda (x y)
+    (cond
+      ((zero? y) x)
+      (else (sub1 (minus x (sub1 y)))))))
+
+(minus 12 12)
+(minus 24 12)
+
+(define addTup
+  (lambda (tup)
+    (cond
+      ((null? tup) 0)
+      (else
+       (plus (car tup) (addTup (cdr tup)))))))
+
+(addTup '(1 2 3 4 5 6))
+(addTup '(59 63 77 88 92))
+
+(define multiply
+  (lambda (x y)
+    (cond
+      ((zero? y) 0)
+      (else (plus x (multiply x (sub1 y)))))))
+
+(multiply 5 3)
+;(multiply 549 600)
+
+(define tupPlus
+  (lambda (tup1 tup2)
+    (cond
+      ((null? tup2) tup1)
+      ((null? tup1) tup2)
+      (else (cons (plus (car tup1) (car tup2))
+                  (tupPlus (cdr tup1) (cdr tup2)))))))
+
+(tupPlus '(3 6 9 11 4) '(8 5 2 0 7))
+(tupPlus '(3 7 8 1) '(4 6))
+
+(define greaterThan
+  (lambda (x y)
+    (cond
+      ;((and (zero? x) (zero? y)) (quote (equal)))
+      ((zero? x) #f)
+      ((zero? y) #t)
+      (else (greaterThan (sub1 x) (sub1 y))))))
+
+(greaterThan 1 3)
+(greaterThan 15 6)
+;(greaterThan 1 1)
+
+(define lessThan
+  (lambda (x y)
+    (cond
+      ;((and (zero? x) (zero? y)) (quote (equal)))
+      ((zero? y) #f)
+      ((zero? x) #t)
+      (else (lessThan (sub1 x) (sub1 y))))))
+
+(lessThan 1 4)
+(lessThan 6 4)
+;(lessThan 1 1)
+
+(define equals
+  (lambda (x y)
+    (cond
+      ((greaterThan x y) #f)
+      ((lessThan x y) #f)
+      (else #t))))
+
+(equals 1 1)
+(equals 1 2)
+(equals 2 1)
+
+(define raise
+  (lambda (x y)
+    (cond
+      ((zero? y) 1)
+      (else (multiply x(raise x (sub1 y)))))))
+
+(raise 1 1)
+(raise 2 3)
+(raise 5 3)
+
+(define division
+  (lambda (x y)
+    (cond
+      ((lessThan x y) 0)
+      (else (add1 (division (minus x y) y))))))
+
+(division 15 3)
+
+(define length
+  (lambda (lat)
+    (cond
+      ((null? lat) 0)
+      (else (add1 (length (cdr lat)))))))
+
+(length '(hotdogs with ketchup lettuce and tomato))
+
+(define pick
+  (lambda (lat x)
+    (cond
+      ((zero? (sub1 x)) (car lat))
+      (else (pick (cdr lat) (sub1 x))))))
+
+(pick '(spaghetti and meatballs) 2)
+
+(define remPick
+  (lambda (x lat)
+    (cond
+      ((zero? (sub1 x)) (cdr lat))
+      (else (cons (car lat) (remPick (sub1 x) (cdr lat)))))))
+
+(remPick 3 '(spaghetti with marinara saunce))

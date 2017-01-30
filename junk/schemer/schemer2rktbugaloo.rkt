@@ -303,4 +303,67 @@
       ((zero? (sub1 x)) (cdr lat))
       (else (cons (car lat) (remPick (sub1 x) (cdr lat)))))))
 
-(remPick 3 '(spaghetti with marinara saunce))
+(remPick 3 '(spaghetti with marinara sauce))
+
+(define noNums
+  (lambda (lat)
+    (cond
+      ((null? lat) (quote ()))
+      (else
+       (cond
+         ((number? (car lat)) (noNums (cdr lat)))
+         (else
+          (cons (car lat) (noNums (cdr lat)))))))))
+
+(noNums '(1 sack 2 of 3 flour))
+
+(define allNums
+  (lambda (lat)
+    (cond
+      ((null? lat) (quote ()))
+      (else
+       (cond
+         ((number? (car lat)) (cons (car lat) (allNums (cdr lat))))
+         (else
+          (allNums (cdr lat))))))))
+
+(allNums '(1 sack 2 of 3 flour))
+
+(define eqan?
+  (lambda (x y)
+    (cond
+      ((and (number? x) (number? y)) (equals x y))
+      ((or (number? x) (number? y) #f))
+      (else (eq? x y)))))
+
+(eqan? 1 1)
+(eqan? 1 2)
+(eqan? 'atom 'atom)
+(eqan? 'atom 'tuple)
+
+(define occur
+  (lambda (x lat)
+    (cond
+      ((null? lat) 0)
+      (else
+       (cond
+         ((eq? (car lat) x) (add1 (occur x (cdr lat))))
+         (else (occur x (cdr lat))))))))
+
+(occur 1 '(1 2 3 1 4 5 1 6 1))
+
+(define one?
+  (lambda (x)
+    (eqan? x 1)))
+
+(one? 1)
+(one? 2)
+
+(define remPickOne
+  (lambda (x lat)
+    (cond
+      ((one? x) (cdr lat))
+      (else (cons (car lat) (remPickOne (sub1 x) (cdr lat)))))))
+
+(remPickOne 3 '(spaghetti with marinara sauce))
+(quote (end ch4))

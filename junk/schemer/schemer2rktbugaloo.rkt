@@ -1,16 +1,12 @@
 #lang racket
 
 (define add1
-  (lambda (n)
-    (+ n 1)
-   )
-)
+  (lambda (x)
+    (+ x 1)))
 
 (define sub1
-  (lambda (n)
-    (- n 1)
-   )
-)
+  (lambda (x)
+    (- x 1)))
 
 (define atom?
   (lambda (x)
@@ -367,3 +363,6 @@
 
 (remPickOne 3 '(spaghetti with marinara sauce))
 (quote (end ch4))
+
+(define remberStar
+  (lambda (

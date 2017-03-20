@@ -7,3 +7,5 @@
 *.*.pyc
 *.lps
 *.class
+*.stack-work
+*.bak

@@ -8,4 +8,4 @@ isLeapYear year
 main :: IO ()
 main = do
 	line <- getLine
-	print $ isLeapYear (read line::Integer)
+	print $ isLeapYear $ read line

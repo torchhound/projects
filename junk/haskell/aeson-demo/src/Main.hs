@@ -1,4 +1,4 @@
-{-# LANGUAGE DeriveGeneric, DeriveAnyClass, RecordWildCards, OverloadedStrings #-}
+{-# LANGUAGE DeriveGeneric, RecordWildCards, OverloadedStrings #-}
 
 module Main where
 
@@ -14,18 +14,17 @@ import Data.Maybe
 data Currency = Currency { 
   base :: Text,
   date :: Text,
-  usd :: Float } deriving(Show, Generic)
+  rates :: Object } deriving(Show, Generic)
 
 instance FromJSON Currency where
   parseJSON = withObject "currency" $ \o -> do
     base <- o .: "base"
     date <- o .: "date"
     rates <- o .: "rates"
-    usd <- rates .: "USD"
     return Currency{..}
 
 jsonURL :: String
-jsonURL = "https://api.fixer.io/latest?symbols=USD"
+jsonURL = "https://api.fixer.io/latest"
 
 getJSON :: IO BSL.ByteString
 getJSON = simpleHttp jsonURL
